@@ -10,7 +10,9 @@ Given an array of integers temperatures represents the daily temperatures, retur
 Example 1:
 
 Input: temperatures = [73,74,75,71,69,72,76,73]
-[2  ]
+cur index 7
+stack  [6   ]
+output [1 1 4 2 1 1 _ _]
 Output: [1,1,4,2,1,1,0,0]
 Example 2:
 
@@ -25,15 +27,15 @@ Output: [1,1,0]
 public class DailyTemperatures {
 
     public int[] dailyTemperatures(int[] temperatures) {
-        int[] days = new int[temperatures.length];
         Stack<Integer> stack = new Stack<>();
+        int[] output = new int[temperatures.length];
         for (int i = 0; i < temperatures.length; i++) {
             while (!stack.isEmpty() && temperatures[stack.peek()] < temperatures[i]) {
-                    Integer idx = stack.pop();
-                    days[idx] = i - idx;
+                int idx = stack.pop();
+                output[idx] = i - idx;
             }
             stack.push(i);
         }
-        return days;
+        return output;
     }
 }

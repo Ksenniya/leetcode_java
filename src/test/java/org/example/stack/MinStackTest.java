@@ -3,8 +3,6 @@ package org.example.stack;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MinStackTest {
 
     @Test
@@ -16,7 +14,7 @@ class MinStackTest {
         Assertions.assertEquals(-3, minStack.getMin()); // return -3
         minStack.pop();
         Assertions.assertEquals(0, minStack.top());    // return 0
-        Assertions.assertEquals(-2,minStack.getMin()); // return -2
+        Assertions.assertEquals(-2, minStack.getMin()); // return -2
     }
 
 }
